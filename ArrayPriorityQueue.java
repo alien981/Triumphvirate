@@ -74,7 +74,7 @@ public class ArrayPriorityQueue {
     public String toString() {
 	String retStr = "";
 	for (Ticket x : _data) {
-	    retStr += x + ",";
+	    retStr = x + ", " + retStr;
 	}
 	return retStr;
     }
