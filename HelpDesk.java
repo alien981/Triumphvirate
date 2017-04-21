@@ -19,7 +19,7 @@ public class HelpDesk{
 		return queue.toString();
 	}
 	
-/*		
+		
 	
 
 	
@@ -29,13 +29,6 @@ public class HelpDesk{
 		return q;
 	}
 
-	public String getQueue(){
-		String w = "";
-		for(Ticket q: queue){
-			w+= q + ", ";
-		}
-		return w;
-	}
 
 	public String getServices(){
 		String q = "";
@@ -45,7 +38,7 @@ public class HelpDesk{
 		return q;
 	}
 	
-	*/
+	
 	
 	public static void main(String[] args){
 		HelpDesk q = new HelpDesk();
@@ -57,6 +50,14 @@ public class HelpDesk{
 		q.submitTicket("q", "d", 3);
 		System.out.println(q);
 		
+		System.out.println(q.resolveIssue());
+		System.out.println(q.resolveIssue());
+		System.out.println(q.resolveIssue());
+		System.out.println(q.resolveIssue());
+		System.out.println(q.resolveIssue());
+		System.out.println(q.resolveIssue());
+		
+		System.out.println(q.getServices());
 	}
 	
 }
