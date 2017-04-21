@@ -18,15 +18,14 @@ import java.util.ArrayList;
 
 public class ArrayPriorityQueue {
 
-    ArrayList<Ticket> _data;
+    ArrayList<T> _data;
 
     public ArrayPriorityQueue() {
-        _data = new ArrayList<Ticket>();
+        _data = new ArrayList<T>();
     }
      
     //adds an item to this priority queue
-    public void add (Ticket x) {
-		int y = x.getPriority();
+    public void add (T x, int y) {
         int lo = 0;
         int mid = 0;
         int hi = _data.size()-1;

@@ -12,7 +12,7 @@ public class HelpDesk{
 	public void submitTicket(String yourName, String problem, int serviceNum){
 		Ticket q = new Ticket(yourName, problem, nextTicket, serviceNum);
 		nextTicket++;
-		queue.add(q);
+		queue.add(q, q.getPriority());
 	}
 	
 	public String toString(){
