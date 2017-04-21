@@ -5,10 +5,13 @@ public class Ticket{
 	private String typeOfProblem;
 	private int number;
 	private String name;
+	private String solution;
+	private boolean resolved;
 	
 	public Ticket(int num, String cargo){
 		priority = num;
 		description = cargo;
+		resolved = false;
 	}
 	
 	public Ticket(String yourName, String desc, int num, int serviceNum){

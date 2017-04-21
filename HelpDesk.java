@@ -1,6 +1,6 @@
 public class HelpDesk{
 
-	private String[] services = {"0: Send someone to deal with this", "1: My computer crashed", "2: How do you install Java?", "3: I forgot my password", "4: I clicked something", "5: IDK" , "101: I want pizza"};;
+	private String[] services = {"0: Send someone to deal with this", "1: My computer crashed", "2: How do you install Java?", "3: I forgot my password", "4: I clicked something", "5: IDK" , "101: I want pizza"};
 	private ArrayPriorityQueue queue;
 	private int nextTicket;
 	
@@ -19,7 +19,7 @@ public class HelpDesk{
 		return queue.toString();
 	}
 	
-		
+	
 	
 
 	
