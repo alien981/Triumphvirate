@@ -33,7 +33,7 @@ public class HelpDesk{
 	public String getServices(){
 		String q = "";
 		for(String w: services){
-			q+= w + "/n";
+			q+= w + "\n";
 		}
 		return q;
 	}
