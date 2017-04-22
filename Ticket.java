@@ -4,7 +4,6 @@ public class Ticket implements Comparable{
     private int number;
     private int priority;
     private String description;
-    private String typeOfProblem;
     private String solution;
     private boolean resolved;
 	
@@ -26,16 +25,6 @@ public class Ticket implements Comparable{
 	
     public int getPriority(){
 	return priority;
-    }
-
-    public int setPriority(int p) {
-	priority = p;
-	return priority;
-    }
-
-    public String setType(String type) {
-	typeOfProblem = type;
-	return typeOfProblem;
     }
 
     public String setSolution(String sol) {
