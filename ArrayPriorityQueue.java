@@ -18,14 +18,14 @@ import java.util.ArrayList;
 
 public class ArrayPriorityQueue implements PriorityQueue {
 
-    ArrayList<Integer> _data;
+    ArrayList<Comparable> _data;
 
     public ArrayPriorityQueue() {
-        _data = new ArrayList<Integer>();
+        _data = new ArrayList<Comparable>();
     }
      
     //adds an item to this priority queue
-    public void add (Integer x) {
+    public void add (Comparable x) {
         int lo = 0;
         int mid = 0;
         int hi = _data.size()-1;
@@ -60,19 +60,19 @@ public class ArrayPriorityQueue implements PriorityQueue {
     }
      
     //returns the smallest item stored in the array
-    public Integer peekMin() {
+    public Comparable peekMin() {
         return _data.get(_data.size() - 1);
     }
      
-    public Integer removeMin() {
-        Integer temp = peekMin(); 
+    public Object removeMin() {
+        Comparable temp = peekMin(); 
         _data.remove(temp);
         return temp;
     }
 
     public String toString() {
 	String retStr = "";
-	for (int x : _data) {
+	for (Comparable x : _data) {
 	    retStr += x + ",";
 	}
 	return retStr;
@@ -80,7 +80,17 @@ public class ArrayPriorityQueue implements PriorityQueue {
 
     public static void main(String[] args) {
 	ArrayPriorityQueue test = new ArrayPriorityQueue();
-	System.out.println(test.isEmpty());
+	
+	Ticket q = new Ticket(1, "q");
+	test.add(q);
+	Ticket w = new Ticket(0, "w");
+	test.add(w);
+	Ticket e = new Ticket(5, "e");
+	test.add(e);
+	Ticket r = new Ticket(0, "r");
+	test.add(r);
+	System.out.println(test);
+/*	System.out.println(test.isEmpty());
 	test.add(1); 
 	test.add(2);
 	test.add(2);
@@ -111,7 +121,7 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	System.out.println(test.removeMin());
 	System.out.println(test.removeMin());
 	System.out.println(test.removeMin());
-	System.out.println(test.isEmpty());
+	System.out.println(test.isEmpty());*/
     }
 }
 
