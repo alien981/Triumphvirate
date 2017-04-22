@@ -4,6 +4,7 @@ public class HelpDesk{
 
     private String[] services = {"0: Send someone to deal with this", "1: My computer crashed", "2: How do you install Java?", "3: I forgot my password", "4: I clicked something", "5: IDK" , "101: I want pizza"};
     private String[] types = {"Not booting up", "Screen is blank", "Internet issues", "Slow or frozen", "Other"};
+    private String[] solutions;
     private ArrayPriorityQueue queue;
     private int nextTicket;
 	
@@ -60,8 +61,9 @@ public class HelpDesk{
 	
 
     public String resolveIssue(){
-	String q = "Issue solved: ";
-	q += queue.removeMin();
+	Ticket current = queue.removeMin();
+	current.setSolution(solutions[current.getPriority()]);
+	String q = "Issue: " + current + "\nSolution: " + current.getSolution():;
 	return q;
     }
 
