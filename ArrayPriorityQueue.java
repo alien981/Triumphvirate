@@ -16,31 +16,31 @@
 
 import java.util.ArrayList;
 
-public class ArrayPriorityQueue {
+public class ArrayPriorityQueue implements PriorityQueue {
 
-    ArrayList<T> _data;
+    ArrayList<Integer> _data;
 
     public ArrayPriorityQueue() {
-        _data = new ArrayList<T>();
+        _data = new ArrayList<Integer>();
     }
      
     //adds an item to this priority queue
-    public void add (T x, int y) {
+    public void add (Integer x) {
         int lo = 0;
         int mid = 0;
         int hi = _data.size()-1;
         while (lo <= hi) { //running until target is found or bounds cross
 	    mid = (lo + hi) / 2; 
-	    int c = _data.get(mid).getPriority(); 
-	    if (c == y) {//mid value and x are EQUAL
+	    int c = _data.get(mid).compareTo(x); 
+	    if (c == 0) {//mid value and x are EQUAL
 		//time to traverse backwards until you reach either the front or the next level of priority
-		while (mid > -1 && _data.get(mid).getPriority() == y) {	    
+		while (mid > -1 && _data.get(mid).compareTo(x) == 0) {	    
 		    mid = mid - 1;
 		}
 		_data.add(mid+1, x);
 		return;
 	    }
-	    else if (c > y) { //mid value is GREATER THAN x
+	    else if (c > 0) { //mid value is GREATER THAN x
 		//look at upper half of data
 		lo = mid + 1; 
 	    }
@@ -60,20 +60,20 @@ public class ArrayPriorityQueue {
     }
      
     //returns the smallest item stored in the array
-    public Ticket peekMin() {
+    public Integer peekMin() {
         return _data.get(_data.size() - 1);
     }
      
-    public Ticket removeMin() {
-        Ticket temp = peekMin(); 
+    public Integer removeMin() {
+        Integer temp = peekMin(); 
         _data.remove(temp);
         return temp;
     }
 
     public String toString() {
 	String retStr = "";
-	for (Ticket x : _data) {
-	    retStr = x + ", " + retStr;
+	for (int x : _data) {
+	    retStr += x + ",";
 	}
 	return retStr;
     }
@@ -81,22 +81,37 @@ public class ArrayPriorityQueue {
     public static void main(String[] args) {
 	ArrayPriorityQueue test = new ArrayPriorityQueue();
 	System.out.println(test.isEmpty());
-	Ticket q = new Ticket(0, "a");
-	test.add(q);
-	Ticket w = new Ticket(5, "d");
-	test.add(w);
-	Ticket e = new Ticket(0, "b");
-	test.add(e);
-	Ticket r = new Ticket(500, "e");
-	test.add(r);
-	Ticket t = new Ticket(1, "c");
-	test.add(t);
-	
+	test.add(1); 
+	test.add(2);
+	test.add(2);
+	test.add(2);
+	test.add(3);
+	test.add(3);
+	test.add(4);
+	test.add(4);
+	test.add(4);
+	test.add(5);
+	test.add(4);
+	test.add(3);
+	test.add(2);
+	test.add(1);
+	System.out.println(test);
+	System.out.println(test.isEmpty());
 	System.out.println(test.removeMin());
 	System.out.println(test.removeMin());
 	System.out.println(test.removeMin());
 	System.out.println(test.removeMin());
 	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.isEmpty());
     }
 }
 
