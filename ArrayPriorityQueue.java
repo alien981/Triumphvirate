@@ -77,6 +77,18 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	}
 	return retStr;
     }
+	
+	public void sort(){
+			int maxPos;
+	for( int pass = _data.size()-1; pass > 0; pass-- ) {
+	    maxPos = 0;
+	    for( int i = 1; i <= pass; i++ ) {
+		if ( _data.get(i).compareTo( _data.get(maxPos) ) > 0 )
+		    maxPos = i;
+	    }
+	    _data.set( maxPos, ( _data.set( pass, _data.get(maxPos) ) ) );
+	}
+	}
 
     public static void main(String[] args) {
 	ArrayPriorityQueue test = new ArrayPriorityQueue();
@@ -89,7 +101,9 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	test.add(e);
 	Ticket r = new Ticket(0, "r");
 	test.add(r);
+	test.sort();
 	System.out.println(test);
+	
 /*	System.out.println(test.isEmpty());
 	test.add(1); 
 	test.add(2);
