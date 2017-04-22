@@ -12,17 +12,14 @@ public class HelpDesk{
 	public void submitTicket(String yourName, String problem, int serviceNum){
 		Ticket q = new Ticket(yourName, problem, nextTicket, serviceNum);
 		nextTicket++;
-		queue.add(q, q.getPriority());
+		queue.add(q);
 	}
 	
 	public String toString(){
 		return queue.toString();
 	}
 	
-	
-	
 
-	
 	public String resolveIssue(){
 		String q = "Issue solved: ";
 		q += queue.removeMin();
