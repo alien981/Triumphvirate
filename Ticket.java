@@ -33,6 +33,10 @@ public class Ticket implements Comparable{
 	return solution;
     }
 
+    public String getSolution() {
+	return solution;
+    }
+
     public int compareTo(Object x) {
 	return priority - ( (Ticket) x).getPriority();
     }
