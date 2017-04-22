@@ -1,6 +1,7 @@
 public class HelpDesk{
 
     private String[] services = {"0: Send someone to deal with this", "1: My computer crashed", "2: How do you install Java?", "3: I forgot my password", "4: I clicked something", "5: IDK" , "101: I want pizza"};
+    private String[] types = {"Not booting up", "Screen is blank", "Internet issues", "Slow or frozen", "Other"};
     private ArrayPriorityQueue queue;
     private int nextTicket;
 	
@@ -11,7 +12,7 @@ public class HelpDesk{
 	
     public void submitTicket(String yourName) {
 	serviceNum = classify();
-	Ticket q = new Ticket(yourName, problem, nextTicket, serviceNum);
+	Ticket q = new Ticket(yourName, types[serviceNum], nextTicket, serviceNum);
 	nextTicket++;
 	queue.add(q);
     }
@@ -20,22 +21,22 @@ public class HelpDesk{
     public int classify() {
 	System.out.println("Is your computer booting up? \n1: no \n2: yes");
 	if ("insert code" == 1) {
-	    return 1;
+	    return 0;
 	} else {
 	    System.out.println("Is your screen blank? \n1: no \n2: yes");
 		if ("insertcode" == 2) {
-		    return 2;
+		    return 1;
 		} else {
 		    System.out.println("Is your computer having internet issues? \n1: no \n2: yes");
 			if ("insert code" == 2) {
-			    return 3;
+			    return 2;
 			} else {
 			    System.out.println("Is your computer slow or frozen? \n1: no \n2: yes" )
 				if ("insert code" == 2) {
-				    return 4;
+				    return 3;
 				} else {
 				    System.out.println("Thank you for your response."
-						       return 5;
+						       return 4;
 
 
 			}
@@ -61,9 +62,7 @@ public class HelpDesk{
 	}
 	return q;
     }
-	
-	
-	
+
     public static void main(String[] args){
 	HelpDesk q = new HelpDesk();
 	q.submitTicket("q", "f", 5);
