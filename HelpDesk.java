@@ -24,22 +24,22 @@ public class HelpDesk{
 	    return 0;
 	} else {
 	    System.out.println("Is your screen blank? \n1: no \n2: yes");
-		if ("insertcode" == 2) {
-		    return 1;
+	    if ("insertcode" == 2) {
+		return 1;
+	    } else {
+		System.out.println("Is your computer having internet issues? \n1: no \n2: yes");
+		if ("insert code" == 2) {
+		    return 2;
 		} else {
-		    System.out.println("Is your computer having internet issues? \n1: no \n2: yes");
+		    System.out.println("Is your computer slow or frozen? \n1: no \n2: yes" )
 			if ("insert code" == 2) {
-			    return 2;
+			    return 3;
 			} else {
-			    System.out.println("Is your computer slow or frozen? \n1: no \n2: yes" )
-				if ("insert code" == 2) {
-				    return 3;
-				} else {
-				    System.out.println("Thank you for your response."
-						       return 4;
-
-
+			    System.out.println("Thank you for your response.");
+			    return 4;
 			}
+		}
+	    }
 	}
     }
 	
