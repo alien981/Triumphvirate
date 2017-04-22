@@ -28,26 +28,26 @@ public class HelpDesk{
 	    return 0;
 	} else {
 	    System.out.println("Is your screen blank? \n1: no \n2: yes");
-			String s = Keyboard.readInt();
+	    int s = Keyboard.readInt();
 	    if (s == 2) {
 			System.out.println(1);
 			return 1;
 	    } 
 		else {
 		System.out.println("Is your computer having internet issues? \n1: no \n2: yes");
-		String s = Keyboard.readInt();
+		int s = Keyboard.readInt();
 		if (s == 2) {
-			System.out.println(2);
+		    System.out.println(2);
 		    return 2;
 		} else {
 		    System.out.println("Is your computer slow or frozen? \n1: no \n2: yes" );
-			String s = Keyboard.readInt();
+			int s = Keyboard.readInt();
 			if (s == 2) {
-				System.out.println(3);
+			    System.out.println(3);
 			    return 3;
 			} else {
 			    System.out.println("Thank you for your response.");
-				System.out.println(4);
+			    System.out.println(4);
 			    return 4;
 			}
 		}
@@ -59,11 +59,12 @@ public class HelpDesk{
 	return queue.toString();
     }
 	
-
     public String resolveIssue(){
 	Ticket current = queue.removeMin();
 	current.setSolution(solutions[current.getPriority()]);
-	String q = "Issue: " + current + "\nSolution: " + current.getSolution():;
+	if (current.resolved == true) {
+	    String q = "Issue: " + current + "\nSolution: " + current.getSolution():;
+	}
 	return q;
     }
 
