@@ -1,10 +1,10 @@
 public class Ticket implements Comparable{
 
+    private String name;
+    private int number;
     private int priority;
     private String description;
     private String typeOfProblem;
-    private int number;
-    private String name;
     private String solution;
     private boolean resolved;
 	
@@ -15,10 +15,13 @@ public class Ticket implements Comparable{
     }
 	
     public Ticket(String yourName, String desc, int num, int serviceNum){
-	description = desc;
 	name = yourName;
 	number = num;
 	priority = serviceNum;
+	description = desc;
+	typeOfProblem = null;
+	solution = null;
+	resolved = false;
     }
 	
     public int getPriority(){
