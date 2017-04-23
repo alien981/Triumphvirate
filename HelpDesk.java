@@ -63,7 +63,7 @@ public class HelpDesk{
 	Ticket current = queue.removeMin();
 	current.setSolution(solutions[current.getPriority()]);
 	if (current.resolved == true) {
-	    String q = "Issue: " + current + "\nSolution: " + current.getSolution():;
+	    String q = "Issue: " + current + "\nSolution: " + current.getSolution();
 	}
 	return q;
     }
