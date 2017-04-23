@@ -9,7 +9,7 @@
 
 ### THINGS WE STILL HAVE TO DO:
 
-- generically type ArrayPriorityQueue so we can have ArrayPriorityQueue<Ticket> in HelpDesk
+- generically type ArrayPriorityQueue so we can have ArrayPriorityQueue of Tickets in HelpDesk
 - user input in HelpDesk (introduction, asking for name)
 - fill out readme
 
