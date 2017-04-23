@@ -1,17 +1,17 @@
 # Triumphvirate
 
-###### Kristin Lin, Samantha Ngo, Despoina Sparakis
-###### APCS2 pd01
-###### Lab#03 -- RUVIP?
-###### 2017-04-24
+**Kristin Lin, Samantha Ngo, Despoina Sparakis**         
+**APCS2 pd01**    
+**Lab#03 -- RUVIP?**     
+**2017-04-24**        
 
 
-## HELP DESK:
+### HELP DESK:
 
-#### Our Design
+##### Our Design
 
 Amazing things will be written here.
 
-#### Our Embellishments
+##### Our Embellishments
 
 More amazing things will be written here.
