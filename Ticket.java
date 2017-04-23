@@ -18,7 +18,6 @@ public class Ticket implements Comparable{
 	number = num;
 	priority = serviceNum;
 	description = desc;
-	typeOfProblem = null;
 	solution = null;
 	resolved = false;
     }

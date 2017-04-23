@@ -14,7 +14,7 @@ public class HelpDesk{
     }
 	
     public void submitTicket(String yourName) {
-	serviceNum = classify();
+	int serviceNum = classify();
 	Ticket q = new Ticket(yourName, types[serviceNum], nextTicket, serviceNum);
 	nextTicket++;
 	queue.add(q);
@@ -28,20 +28,19 @@ public class HelpDesk{
 	    return 0;
 	} else {
 	    System.out.println("Is your screen blank? \n1: no \n2: yes");
-	    int s = Keyboard.readInt();
+	    s = Keyboard.readInt();
 	    if (s == 2) {
-			System.out.println(1);
-			return 1;
-	    } 
-		else {
+		System.out.println(1);
+		return 1;
+	    } else {
 		System.out.println("Is your computer having internet issues? \n1: no \n2: yes");
-		int s = Keyboard.readInt();
+		s = Keyboard.readInt();
 		if (s == 2) {
 		    System.out.println(2);
 		    return 2;
 		} else {
 		    System.out.println("Is your computer slow or frozen? \n1: no \n2: yes" );
-			int s = Keyboard.readInt();
+			s = Keyboard.readInt();
 			if (s == 2) {
 			    System.out.println(3);
 			    return 3;
@@ -60,11 +59,9 @@ public class HelpDesk{
     }
 	
     public String resolveIssue(){
-	Ticket current = queue.removeMin();
+	Ticket current = (Ticket) queue.removeMin();
 	current.setSolution(solutions[current.getPriority()]);
-	if (current.resolved == true) {
-	    String q = "Issue: " + current + "\nSolution: " + current.getSolution();
-	}
+	String q = "Issue: " + current + "\nSolution: " + current.getSolution();
 	return q;
     }
 
