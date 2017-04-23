@@ -6,7 +6,12 @@
 *2017-04-24*        
 
 
-### HELP DESK:
+
+### THINGS WE STILL HAVE TO DO:
+
+- generically type ArrayPriorityQueue so we can have ArrayPriorityQueue<Ticket> in HelpDesk
+- user input in HelpDesk (introduction, asking for name)
+- fill out readme
 
 ##### Our Design
 
