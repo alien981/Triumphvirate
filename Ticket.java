@@ -1,7 +1,7 @@
 public class Ticket implements Comparable{
 
     public String name;
-    private int number;
+    public int number;
     private int priority;
     private String description;
     private String solution;

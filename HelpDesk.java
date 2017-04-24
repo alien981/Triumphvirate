@@ -2,8 +2,6 @@ import cs1.Keyboard;
 
 public class HelpDesk{
 
-    //are services still necessary? Or how can we change them to make them more relevant
-    private String[] services = {"0: Send someone to deal with this", "1: My computer crashed", "2: How do you install Java?", "3: I forgot my password", "4: I clicked something", "5: IDK" , "101: I want pizza"};
     private String[] types = {"Not booting up", "Screen is blank", "Internet issues", "Slow or frozen", "Other"};
     private String[] solutions = {"Check if your computer is plugged in, and if not, reset to factory settings.", "Try rebooting your computer; if problem persists, call for help again and answer no for all questions.", "Disconnect to the wifi and reconnect again, or check the cable for the ethernet. If problem persists, call for help again and answer no for all questions.", "Clear your RAM and reboot your computer; if problem persists, call for help again and answer no for all questions.", "Please await human assistance."};
     private ArrayPriorityQueue<Ticket> queue;
@@ -16,8 +14,12 @@ public class HelpDesk{
     }
 
     //enqueue new tickets
-    public void submitTicket(String yourName) {
-	// USER INPUT FOR NAME 
+    public void submitTicket() {
+	System.out.println("\nWelcome to the Help Desk!");
+	System.out.println("\nWhat is your name?");
+	String yourName;
+	yourName = Keyboard.readString();
+	System.out.println("Hello " + yourName + "!" + "You are number: " + nextTicket);
 	int serviceNum = classify();
 	Ticket q = new Ticket(yourName, types[serviceNum], nextTicket, serviceNum);
 	nextTicket++;
@@ -26,6 +28,7 @@ public class HelpDesk{
 
     //to determine the priority of issuee
     public int classify() {
+	System.out.println();
 	System.out.println("Is your computer not booting up? \n1: no \n2: yes");
 	int s = Keyboard.readInt();
 	if (s == 2) {
@@ -63,28 +66,35 @@ public class HelpDesk{
     public String resolveIssue(){
 	Ticket current = queue.removeMin();
 	current.setSolution(solutions[current.getPriority()]);
-	String q = "\nName: " + current.name + "\nIssue: " + current + "\nSolution: " + current.getSolution();
+	String q = "\nName: " + current.name + "\nNumber: " + current.number + "\nIssue: " + current + "\nSolution: " + current.getSolution();
 	return q;
     }
 
-
-    public String getServices(){
-	String q = "";
-	for(String w: services){
-	    q+= w + "\n";
-	}
-	return q;
+    //are there still any issues?
+    public boolean isEmpty() {
+	return queue.isEmpty();
     }
-
+    
     public static void main(String[] args){
+
 	HelpDesk q = new HelpDesk();
-	q.submitTicket("Wilson"); //internet issues
+	q.submitTicket();
+	q.submitTicket();
+	q.submitTicket();
+
+	while(!q.isEmpty()) {
+	    System.out.println(q.resolveIssue());
+	}
+
+	/*
+	  q.submitTicket("Wilson"); //internet issues
 	q.submitTicket("Jonathan"); //other
 	q.submitTicket("Billy"); //not booting up
 
 	System.out.println(q.resolveIssue()); //billy
 	System.out.println(q.resolveIssue()); //wilson
 	System.out.println(q.resolveIssue()); //jonathan
+	*/
 	
 	/*q.submitTicket("q", "f", 5);
 	q.submitTicket("q", "a", 0);
