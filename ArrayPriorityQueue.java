@@ -16,25 +16,25 @@
 
 import java.util.ArrayList;
 
-public class ArrayPriorityQueue implements PriorityQueue {
+public class ArrayPriorityQueue<T> implements PriorityQueue<T> {
 
-    ArrayList<Comparable> _data;
+    ArrayList<T> _data;
 
     public ArrayPriorityQueue() {
-        _data = new ArrayList<Comparable>();
+        _data = new ArrayList<T>();
     }
      
     //adds an item to this priority queue
-    public void add (Comparable x) {
+    public void add (T x) {
         int lo = 0;
         int mid = 0;
         int hi = _data.size()-1;
         while (lo <= hi) { //running until target is found or bounds cross
 	    mid = (lo + hi) / 2; 
-	    int c = _data.get(mid).compareTo(x); 
+	    int c = ((Comparable) _data.get(mid)).compareTo((Comparable) x); 
 	    if (c == 0) {//mid value and x are EQUAL
 		//time to traverse backwards until you reach either the front or the next level of priority
-		while (mid > -1 && _data.get(mid).compareTo(x) == 0) {	    
+		while (mid > -1 && ((Comparable) _data.get(mid)).compareTo((Comparable) x) == 0) {	    
 		    mid = mid - 1;
 		}
 		_data.add(mid+1, x);
@@ -60,35 +60,36 @@ public class ArrayPriorityQueue implements PriorityQueue {
     }
      
     //returns the smallest item stored in the array
-    public Comparable peekMin() {
+    public T peekMin() {
         return _data.get(_data.size() - 1);
     }
      
-    public Object removeMin() {
-        Comparable temp = peekMin(); 
+    public T removeMin() {
+        T temp = peekMin(); 
         _data.remove(temp);
         return temp;
     }
 
     public String toString() {
 	String retStr = "";
-	for (Comparable x : _data) {
+	for (T x : _data) {
 	    retStr += x + ",";
 	}
 	return retStr;
     }
-	
-	public void sort(){
-			int maxPos;
+
+    /*
+    public void sort(){
+	int maxPos;
 	for( int pass = _data.size()-1; pass > 0; pass-- ) {
 	    maxPos = 0;
 	    for( int i = 1; i <= pass; i++ ) {
-		if ( _data.get(i).compareTo( _data.get(maxPos) ) > 0 )
+		if (((Comparable) _data.get(i)).compareTo((Comparable) _data.get(maxPos) ) > 0 )
 		    maxPos = i;
 	    }
 	    _data.set( maxPos, ( _data.set( pass, _data.get(maxPos) ) ) );
 	}
-	}
+	}*/
 
     public static void main(String[] args) {
 	ArrayPriorityQueue test = new ArrayPriorityQueue();
@@ -101,8 +102,12 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	test.add(e);
 	Ticket r = new Ticket(0, "r");
 	test.add(r);
-	test.sort();
+	//test.sort();
 	System.out.println(test);
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
 	
 /*	System.out.println(test.isEmpty());
 	test.add(1); 

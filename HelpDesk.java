@@ -6,13 +6,13 @@ public class HelpDesk{
     private String[] services = {"0: Send someone to deal with this", "1: My computer crashed", "2: How do you install Java?", "3: I forgot my password", "4: I clicked something", "5: IDK" , "101: I want pizza"};
     private String[] types = {"Not booting up", "Screen is blank", "Internet issues", "Slow or frozen", "Other"};
     private String[] solutions = {"Check if your computer is plugged in, and if not, reset to factory settings.", "Try rebooting your computer; if problem persists, call for help again and answer no for all questions.", "Disconnect to the wifi and reconnect again, or check the cable for the ethernet. If problem persists, call for help again and answer no for all questions.", "Clear your RAM and reboot your computer; if problem persists, call for help again and answer no for all questions.", "Please await human assistance."};
-    private ArrayPriorityQueue queue;
+    private ArrayPriorityQueue<Ticket> queue;
     private int nextTicket;
 
     //constructor
     public HelpDesk(){
 	nextTicket = 0;
-	queue = new ArrayPriorityQueue();
+	queue = new ArrayPriorityQueue<Ticket>();
     }
 
     //enqueue new tickets
@@ -61,7 +61,7 @@ public class HelpDesk{
 
     //dequeue tickets by priority	
     public String resolveIssue(){
-	Ticket current = (Ticket) queue.removeMin();
+	Ticket current = queue.removeMin();
 	current.setSolution(solutions[current.getPriority()]);
 	String q = "\nName: " + current.name + "\nIssue: " + current + "\nSolution: " + current.getSolution();
 	return q;
